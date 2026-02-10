@@ -1,0 +1,145 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f4f6fb;
+}
+
+header {
+    padding: 1rem;
+    background: #667eea;
+    color: white;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+button {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.filter-btn,
+.sort-btn {
+    background: white;
+    margin-right: 0.3rem;
+}
+
+#recipe-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.recipe-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.recipe-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.difficulty.easy { color: green; }
+.difficulty.medium { color: orange; }
+.difficulty.hard { color: red; }
+
+/* Toggle buttons */
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.toggle-btn {
+    flex: 1;
+    background: #f1f3f9;
+    border: 1px solid #ddd;
+}
+
+/* Ingredients */
+.ingredients-container {
+    display: none;
+    margin-top: 1rem;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.ingredients-container.visible {
+    display: block;
+}
+
+.ingredients-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.ingredients-container li::before {
+    content: "✓ ";
+    color: #667eea;
+}
+
+/* Steps */
+.steps-container {
+    display: none;
+    margin-top: 1rem;
+    background: #eef4ff;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.steps-container.visible {
+    display: block;
+}
+
+.steps-list {
+    list-style: none;
+    counter-reset: step;
+    padding: 0;
+}
+
+.steps-list > li {
+    counter-increment: step;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.steps-list > li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    background: #667eea;
+    color: white;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* Nested steps */
+.substeps-list {
+    list-style: none;
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+    border-left: 2px solid #667eea;
+}
+
+.substeps-list li::before {
+    content: "→ ";
+    color: #667eea;
+}
